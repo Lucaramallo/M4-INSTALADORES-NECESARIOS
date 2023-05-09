@@ -1,0 +1,129 @@
+1 - Instalación de Docker:
+
+* sudo docker run hello-world
+
+
+2 - Descarguemos desde GitHub lo necesario para ejecutar el CLUSTER:
+
+* git clone https://github.com/soyHenry/DS-M4-Cluster_Hadoop
+
+3. Crear red para el cluster de hadoop
+
+sudo docker network create --driver=bridge hadoop
+
+4. Inicializar el cluster
+
+cd DS-M4-Cluster_Hadoop
+
+5. (no va  a andar)..:
+ * sudo ./start-container.sh
+
+
+- Entonces paso este otro comando...:
+* chmaod +x ./start-container.sh
+
+- y de nuevo:
+ * sudo ./start-container.sh
+
+output:
+
+start hadoop-master container...
+start hadoop-slave1 container...
+start hadoop-slave2 container...
+root@hadoop-master:~# 
+
+Iniciar con 2 esclavos y un maestro
+Entraremos al contenedor master
+
+continuar desde git: https://github.com/soyHenry/DS-M4-Cluster_Hadoop.
+
+.....
+.
+.
+.
+.
+......
+
+trabajo practico integrador: arrangar herramientas big data
+
+luca ramallo
+Entorno Docker con Hadoop, Spark y Hive
+Se pesenta un entorno Docker con Hadoop (HDFS) y la implementación de:
+
+Spark
+Hive
+HBase
+MongoDB
+Neo4J
+Zeppelin
+Kafka
+Es importante mencionar que el entorno completo consume muchos recursos de su equipo, motivo por el cuál, se propondrán ejercicios pero con ambientes reducidos, en función de las herramientas utilizadas.
+
+Ejecute docker network inspect en la red (por ejemplo, docker-hadoop-spark-hive_default) para encontrar la IP en la que se publican las interfaces de hadoop. Acceda a estas interfaces con las siguientes URL:
+
+Namenode: http://<IP_Anfitrion>:9870/dfshealth.html#tab-overview
+Datanode: http://<IP_Anfitrion>:9864/
+Spark master: http://<IP_Anfitrion>:8080/
+Spark worker: http://<IP_Anfitrion>:8081/	
+HBase Master-Status: http://<IP_Anfitrion>:16010
+HBase Zookeeper_Dump: http://<IP_Anfitrion>:16010/zk.jsp
+HBase Region_Server: http://<IP_Anfitrion>:16030
+Zeppelin: http://<IP_Anfitrion>:8888
+Neo4j: http://<IP_Anfitrion>:7474
+Para implementar ejecute
+
+  git clone https://github.com/lopezdar222/herramientas_big_data
+  cd herramientas_big_data
+  sudo docker-compose -f docker-compose-vX.yml up -d
+
+Lo siento, pero como modelo de lenguaje, no tengo la capacidad de ejecutar comandos en un sistema operativo o ambiente de desarrollo. Sin embargo, puedo proporcionarle información general sobre cómo se puede configurar un entorno Docker con Hadoop, Spark, Hive y otras herramientas.
+
+Para crear un entorno Docker con Hadoop, Spark, Hive, HBase, MongoDB, Neo4J, Zeppelin y Kafka, puede seguir los siguientes pasos:
+
+Descargue la imagen de Docker de Hadoop del repositorio oficial de Hadoop en Docker Hub. Puede usar el siguiente comando para descargar la imagen:
+
+bash
+Copy code
+docker pull sequenceiq/hadoop-docker:2.7.1
+Clone el repositorio de herramientas_big_data en su máquina local:
+
+bash
+Copy code
+git clone https://github.com/lopezdar222/herramientas_big_data
+Descargue las imágenes de Docker de Spark, Hive, HBase, MongoDB, Neo4J, Zeppelin y Kafka que se especifican en el archivo docker-compose.yml del repositorio de herramientas_big_data.
+
+Ejecute el archivo docker-compose.yml usando el siguiente comando:
+
+Copy code
+sudo docker-compose -f docker-compose.yml up -d
+Este comando iniciará los contenedores de Docker para todas las herramientas especificadas en el archivo docker-compose.yml. Una vez que se hayan iniciado los contenedores, puede acceder a las interfaces web de las herramientas utilizando las URL que se mencionan en la pregunta.
+
+Tenga en cuenta que este entorno completo consume muchos recursos del sistema y puede no ser adecuado para una máquina local de baja capacidad. Por lo tanto, puede reducir el número de herramientas para crear un ambiente más pequeño y adecuado para su equipo.
+
+
+
+
+luca ramallo
+para que sirve el paso 1.
+El primer paso, que es descargar la imagen de Docker de Hadoop del repositorio oficial de Hadoop en Docker Hub, es importante porque esta imagen contiene todo lo necesario para ejecutar una instancia de Hadoop en un contenedor Docker. La imagen contiene el sistema operativo, las bibliotecas, las herramientas y las configuraciones necesarias para ejecutar una sola instancia de Hadoop, incluidos el NameNode, DataNode y ResourceManager, entre otros componentes.
+
+Descargar la imagen de Docker de Hadoop desde el repositorio oficial de Hadoop en Docker Hub, hace que sea fácil y rápido configurar y ejecutar una instancia de Hadoop en Docker, sin tener que preocuparse por instalar y configurar todos los componentes individualmente. Además, al utilizar una imagen de Docker, se puede tener múltiples instancias de Hadoop que se pueden ejecutar de manera aislada y sin interferir entre sí en la misma máquina.
+
+
+
+
+luca ramallo
+el 2. descarga lo necesario eso lo entiendo, pero el 3. que ahce?
+En el tercer paso, después de haber descargado la imagen de Docker de Hadoop y clonado el repositorio de herramientas_big_data, se debe descargar las imágenes de Docker de Spark, Hive, HBase, MongoDB, Neo4J, Zeppelin y Kafka que se especifican en el archivo docker-compose.yml del repositorio de herramientas_big_data.
+
+El archivo docker-compose.yml es un archivo YAML que describe los servicios necesarios para ejecutar un ambiente de Big Data completo. Cada servicio, como Hadoop, Spark, Hive, HBase, etc., está definido en este archivo con su propia configuración de contenedor Docker.
+
+Para cada servicio que se describe en el archivo docker-compose.yml, se especifica la imagen de Docker que se usará para ejecutar el contenedor Docker correspondiente. Si las imágenes de Docker de los servicios especificados en el archivo docker-compose.yml aún no están disponibles en la máquina local, Docker las descargará automáticamente desde Docker Hub.
+
+Por lo tanto, el tercer paso implica descargar las imágenes de Docker de Spark, Hive, HBase, MongoDB, Neo4J, Zeppelin y Kafka que se especifican en el archivo docker-compose.yml, para que puedan ser utilizadas por Docker para crear y ejecutar los contenedores correspondientes.
+
+
+
+
+
+
